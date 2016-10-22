@@ -5,14 +5,7 @@ import java.math.BigInteger;
 public class Main {
 
     public static void main(String[] args) {
-        /*System.out.println(binomialCoefficient(11,5)
-                .add(binomialCoefficient(10,5))
-                .add(binomialCoefficient(9,5))
-                .add(binomialCoefficient(8,5))
-                .add(binomialCoefficient(7,5))
-                .add(binomialCoefficient(6,5))
-                .add(BigInteger.valueOf(1)));*/
-        System.out.println(binomialCoefficient(36,7));
+        System.out.println(surjection(7,5));
     }
 
     public static BigInteger factorial(int n){
@@ -24,8 +17,15 @@ public class Main {
     }
 
     public static BigInteger binomialCoefficient(int n, int m){
-        BigInteger bi = BigInteger.valueOf(1);
-        bi = factorial(n).divide(factorial(m)).divide(factorial(n-m));
+        BigInteger bi = factorial(n).divide(factorial(m)).divide(factorial(n-m));
+        return bi;
+    }
+
+    public static BigInteger surjection(int n, int k){
+        BigInteger bi = BigInteger.valueOf(0);
+        for(int i = 0; i <= k; i++){
+            bi = bi.add(BigInteger.valueOf(-1).pow(k-i).multiply(binomialCoefficient(k,i)).multiply(BigInteger.valueOf(i).pow(n)));
+        }
         return bi;
     }
 }
