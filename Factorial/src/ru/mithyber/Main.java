@@ -5,8 +5,7 @@ import java.math.BigInteger;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(stirlingNumbers2nd(7,3));
-        System.out.println((Math.pow(3,7) - 3*(Math.pow(2,7)-2)-3)/6);
+        System.out.println(bellNumber(6));
     }
 
     static BigInteger factorial(int n){
@@ -44,5 +43,13 @@ public class Main {
 
     static BigInteger combinationWithRepetition(int n, int m){
         return binomialCoefficient(n+m-1,m);
+    }
+
+    static BigInteger bellNumber(int n){
+        BigInteger bi = BigInteger.valueOf(0);
+        for(int i = 0; i <= n; i++){
+            bi = bi.add(stirlingNumbers2nd(n,i));
+        }
+        return bi;
     }
 }
