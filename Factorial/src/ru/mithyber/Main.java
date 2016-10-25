@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(bellNumber(6));
+        System.out.println(binomialCoefficient(4,3));
     }
 
     static BigInteger factorial(int n){
